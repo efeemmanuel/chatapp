@@ -1,0 +1,94 @@
+{% extends 'base.html' %} 
+
+{% load humanize %}
+
+{% block cont %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    // creating small badges that holds number of notifications and friend-requests
+    let fr_bg = document.createElement("div");
+    let n_bg = document.createElement("div");
+    
+  
+    // selecting the container elements for the small badges created above
+    let n_bg_container = document.querySelector("#not_container")
+    let fr_bg_container = document.querySelector("#fri_container")
+  
+    
+  
+  
+    // this function helps to fetch the total number of unseen friend-request for the loggin user every 1 seconds
+    
+    setInterval(getFriendRequest, 2000)
+    function getFriendRequest() {
+      let url = "/get-friend-request";
+      console.log("okay");
+  
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+     
+          if (data > 0) {
+            fr_bg.innerText = data;
+            fr_bg.classList.add("bg");
+            console.log(fr_bg);
+          }
+          fr_bg_container.append(fr_bg)
+        })
+        .catch((error) => {
+          console.log();
+        });
+    }
+  
+  
+  // this function helps to fetch the total number of unseen notification for the logged-in user every 1 seconds
+    setInterval(fetchNotifications, 2000)
+    function fetchNotifications() {
+      let url = "/get-notifications";
+  
+      fetch(url)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+  
+          if (data > 0) {
+            n_bg.innerText = data;
+            n_bg.classList.add("bg");
+          }
+          n_bg_container.append(n_bg)
+        
+        })
+        .catch((error) => {
+          console.log();
+        });
+    }
+  
+  </script>
+  
+{% endblock %}

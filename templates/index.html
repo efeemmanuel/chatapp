@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+       <title> Online-Cunsult  </title>
+    <base  />
+    <meta name="----- " content="Xsharesmarketing  - Experience More Than Trading"/>
+    <meta name="description" content="Xsharesmarketing  - Access the financial markets with an account catered to your needs.">
+    <meta name="keywords" content="online trading service on financial markets" />
+    <meta name="theme-color" content="#080F20">
+
+    <!-- MAIN CSS STYLESHEET -->
+  
+	<link rel="stylesheet" href="{% static './css/new.css' %}" />
+    
+
+
+		
+
+    
+    
+    
+</head>
+<body style="background-color: aliceblue;">
+    
+
+ 
+	
+	
+	
+	
+	
+
+
+
+        
+<div class="">
+    <ul class="">
+        
+              
+    <div class="why-we__in" >
+        
+                <ul class="why-list">
+              
+                 <li class="why-list__item"  align="left">
+                    <span class="title__text" style="color: black; font-weight: 750;">Welcome To DokChat <br>The World's Leading Health Platform</span>
+                    <span class="title__small-text">Making life easy and comfortable</span>
+                     <br>  <br>  
+					 
+					 {%if request.user.is_authenticated %}
+                     <div  align="left">
+                    
+                        <a href="/logout" class="btn btn--success bxSlider__btn-wrap__btn" align="left">
+                        Sign out        </a>
+						
+						<a href="/chats" class="btn btn--success bxSlider__btn-wrap__btn" align="left">
+                        chats        </a>
+                    </div>
+					
+					{%else%}
+					
+					<div  align="left">
+                    <a href="/register" class="btn btn--success bxSlider__btn-wrap__btn" align="left">
+                        Sign up for free         </a>
+                        <a href="/login" class="btn btn--success bxSlider__btn-wrap__btn" align="left">
+                        Sign in        </a>
+                    </div>
+					
+					{%endif%}
+               
+                </li>
+                
+                 <li class="why-list__item">
+                 <div class="">
+								
+						
+						
+						
+					<style>
+img {
+  width: 100%;
+  height: auto;
+}
+</style>
+						
+	<img class='mobile' src="{% static './img/fun-3d-cartoon-illustration-indian-doctor.png' %}" weight="500px" height="250px" alt="Mobile preview" />
+						
+						
+						
+						</div>
+				
+                </li>
+                
+                
+            </div>
+        </li>
+            </ul>
+            
+    </div>
+
+</body>
+
+<script src="{% static './js/maind2fad2fad2fa.js' %}"></script>
+
+
+	
+    
+   
+
+
+
+</html>

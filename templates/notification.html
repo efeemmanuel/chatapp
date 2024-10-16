@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block cont %}
+
+
+
+<div class="container chatbody">
+    <div class="row">
+        <div class="col">
+            <h3><span><a href="/chats">Chatty</a> | </span>Notifications</h3>
+            <div class="sub-div">
+                <p class="para">You have 2 friend Notifications</p>
+                <p class="para">@ <span><strong>{{request.user.username}}</strong></span></p>
+            </div>
+
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col ">
+            <div class="notificationContainer">
+                {% for notification in notifications %}
+                <div class="notification">
+                    {% if notification.sender.profiles.profile_picture %}
+                    <div class="pic">
+                        <img src="{{notification.sender.profiles.profile_picture.url}}" alt="">
+                    </div>
+    
+                    {% else %}
+    
+                    <div class="pic">
+                        <img src="" alt="">
+                    </div>
+    
+                    
+                    {% endif %}
+    
+                    
+                    <div class="msg">
+                        {% comment %} <p><strong>@{{notification.sender.username}}</strong> just sent you a message. </p> {% endcomment %}
+                        <p>{{notification.description}}</p>
+                        <small>{{notification.created | naturaltime }}</small>
+                    </div>
+                </div>
+                    
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+<!-- <div class="chatbody">
+    
+
+        <div class="notificationContainer">
+            {% for notification in notifications %}
+            <div class="notification">
+                {% if notification.sender.profiles.profile_picture %}
+                <div class="pic">
+                    <img src="{{notification.sender.profiles.profile_picture.url}}" alt="">
+                </div>
+
+                {% else %}
+
+                <div class="pic">
+                    <img src="" alt="">
+                </div>
+
+                
+                {% endif %}
+
+                
+                <div class="msg">
+                    {% comment %} <p><strong>@{{notification.sender.username}}</strong> just sent you a message. </p> {% endcomment %}
+                    <p>{{notification.description}}</p>
+                    <small>{{notification.created | naturaltime }}</small>
+                </div>
+            </div>
+                
+            {% endfor %}
+        </div>
+
+      </div> -->
+
+{% endblock cont %}
+
