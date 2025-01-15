@@ -1,4 +1,2 @@
 # chatapp
 .
-.
-d
